@@ -1,0 +1,270 @@
+/**
+ * Base styles
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  background: #333;
+  padding: 40px 0 80px 0;
+  color: #ddd;
+  font: normal 16px/1.4 sans-serif;
+  -webkit-text-size-adjust: none;
+}
+
+a:link, a:visited {
+  color: #ddd;
+}
+
+a:hover, a:active {
+  color: #fff;
+}
+
+code, pre {
+  font-family: Monaco, Consolas, monospace;
+  font-size: 14px;
+}
+
+section {
+  margin: 60px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #fff;
+}
+
+h3 {
+  margin: 1em 0;
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 1em 0;
+}
+
+
+
+/**
+ * Layout styles for the different parts of the site
+ */
+
+.pagewidth {
+  width: 85%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.main-header {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.logo {
+  font-size: 40px;
+}
+
+.tagline {
+  font-size: 18px;
+  max-width: 340px;
+  margin: 10px auto 40px auto;
+}
+
+.menu {
+  margin-top: 40px;
+}
+
+.codearea {
+  background: #222;
+  padding: 10px 0;
+  margin: 20px 0;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer .link-divider {
+  margin: 0 10px;
+  display: block;
+  line-height: 1;
+  color: transparent;
+}
+
+.github-fork-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  width: 74.5px;
+}
+
+.spotify-logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  height: 20px;
+}
+
+
+
+/**
+ * Styles for code blocks
+ */
+
+.code-line {
+  margin: 1em 0;
+}
+
+.code-block {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.code {
+  color: #fff;
+}
+
+.comment {
+  color: #7f7f7f;
+}
+
+.code .shell:before {
+  content: '$  ';
+  color: #B8E986;
+}
+
+.code .string {
+  color: #DFCD7A;
+}
+.code .keyword {
+  color: #B8E986;
+}
+.code .boolean {
+  color: #86B8E9;
+}
+.code .number {
+  color: #86B8E9;
+}
+
+
+
+/**
+ * Larger viewport (desktop / tablet)
+ */
+
+@media (min-width: 600px) {
+
+  /**
+   * Layout styles
+   */
+
+  .pagewidth {
+    max-width: 650px;
+  }
+
+  .main-header {
+    margin-top: 30px;
+  }
+
+  .page-left {
+    width: 50%;
+    float: left;
+  }
+  .page-right {
+    width: 50%;
+    text-align: right;
+    float: right;
+  }
+  .page-left-70 {
+    width: 70%;
+    float: left;
+  }
+  .page-right-30 {
+    width: 30%;
+    text-align: right;
+    float: right;
+  }
+
+  .logo img {
+    width: 260px;
+  }
+
+  .tagline {
+    margin-top: 30px;
+  }
+
+  .menu {
+    margin-top: 0;
+  }
+
+  .footer .link-divider {
+    display: inline;
+    line-height: 1;
+    color: inherit;
+  }
+
+  .github-fork-ribbon {
+    width: 149px;
+  }
+
+  .spotify-logo {
+    top: 20px;
+    right: 20px;
+    height: 30px;
+  }
+
+
+
+
+  /**
+   * Styles for code blocks
+   */
+
+  .code-line {
+    overflow: hidden;
+  }
+
+  .code-line .code {
+    float: left;
+  }
+
+  .code-line .comment {
+    float: right;
+    width: 50%;
+    max-width: 250px;
+  }
+
+}
+
+/**
+ * Large viewport (desktop / tablet)
+ */
+
+@media (min-width: 700px) {
+
+  .main-header {
+    margin-top: 0;
+  }
+
+  .logo img {
+    width: 300px;
+  }
+
+  .spotify-logo {
+    height: 40px;
+  }
+
+}

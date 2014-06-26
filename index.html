@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QuickStart</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="https://github.com/spotify/quickstart">
+    <img src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub" class="github-fork-ribbon">
+  </a>
+
+  <a href="http://spotify.com/">
+    <img src="images/spotify.svg" alt="Spotify Logo" class="spotify-logo">
+  </a>
+
+  <header class="main-header pagewidth">
+    <h1 class="logo">
+      <img src="images/quickstart-logo.svg" width="220" alt="QuickStart">
+    </h1>
+
+    <h2 class="tagline">
+      A CommonJS module resolver, loader and compiler for node.js and browsers.
+    </h2>
+  </header>
+
+  <section class="pagewidth">
+    <div class="page-left-70">
+      <ul>
+        <li>Runs in browsers without manual compilation.</li>
+        <li>Supports node built-ins.</li>
+        <li>Offers a plugin system.</li>
+      </ul>
+    </div>
+    <div class="page-right-30">
+      <nav class="menu">
+        <ul>
+          <li><a href="https://github.com/spotify/quickstart/blob/master/README.md">Documentation</a></li>
+          <li><a href="http://github.com/spotify/quickstart">GitHub Repository</a></li>
+          <li><a href="https://npmjs.org/package/quickstart">NPM Package</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section>
+    <div class="pagewidth">
+      <h3>Installation</h3>
+    </div>
+    <div class="codearea">
+      <div class="pagewidth">
+        <div class="code-line">
+          <code class="comment"><pre>// Install globally for CLI</pre></code>
+          <code class="code"><pre class="shell">npm install quickstart -g</pre></code>
+        </div>
+        <div class="code-line">
+          <code class="comment"><pre>// Navigate to your project</pre></code>
+          <code class="code"><pre class="shell">cd path/to/app</pre></code>
+        </div>
+        <div class="code-line">
+          <code class="comment"><pre>// Install QuickStart locally</pre></code>
+          <code class="code"><pre class="shell">npm install quickstart</pre></code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="pagewidth">
+      <h3>Usage</h3>
+      <p>Reference the file that QuickStart builds for you and it will run your code. QuickStart can either run in dev mode, where it compiles the code when you reload the browser, or in production mode, where you compile it first and then run the pre-compiled file.</p>
+      <p>The entry point of your code is specified in the <code>main</code> field in your <code>package.json</code> file.</p>
+    </div>
+
+    <div class="codearea">
+      <div class="pagewidth code-block">
+        <code class="comment"><pre>index.html</pre></code>
+        <code class="code">
+          <pre>&lt;script src=<span class="string">"main.js"</span>&gt;&lt;/script&gt;</pre>
+        </code>
+        <br>
+        <code class="comment"><pre>index.js</pre></code>
+        <code class="code">
+          <span class="keyword">var</span> _ = require(<span class="string">'underscore'</span>);
+          <br>
+          <span class="keyword">var</span> throttled = _.throttle(updatePosition, <span class="number">100</span>);
+          <br>
+          <span class="keyword">window</span>.addEventListener(<span class="string">'scroll'</span>, throttled, <span class="boolean">false</span>);
+          <br>
+        </code>
+        <br>
+        <code class="comment"><pre>package.json</pre></code>
+        <code class="code">
+          <pre>{</pre>
+          <pre>  <span class="string">"main"</span>: <span class="string">"index.js"</span></pre>
+          <pre>}</pre>
+        </code>
+      </div>
+    </div>
+
+    <div class="pagewidth">
+      <p>While developing your app, QuickStart can automatically recompile everything on each reload. This makes it easy to test your changes and doesn't require you to run any file watcher.</p>
+    </div>
+
+    <div class="codearea">
+      <div class="pagewidth">
+        <div class="code-line">
+          <code class="comment"><pre>// Build a dev mode compiler</pre></code>
+          <code class="code"><pre class="shell">quickstart --self > main.js</pre></code>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagewidth">
+      <p>When you want to build for production, you should run QuickStart again, but this time to compile your entire app into a single file.</p>
+    </div>
+
+    <div class="codearea">
+      <div class="pagewidth">
+        <div class="code-line">
+          <code class="comment"><pre>// Compile the entire app</pre></code>
+          <code class="code"><pre class="shell">quickstart > main.js</pre></code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pagewidth footer">
+    <a href="https://github.com/spotify/quickstart/blob/master/README.md">Documentation</a>
+    <span class="link-divider">&bull;</span>
+    <a href="http://github.com/spotify/quickstart">GitHub Repository</a>
+    <span class="link-divider">&bull;</span>
+    <a href="https://npmjs.org/package/quickstart">NPM Package</a>
+  </section>
+
+</body>
+</html>
