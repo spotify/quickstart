@@ -1,0 +1,21 @@
+{
+  "animals": [
+
+    {
+      "name": "fox",
+      "color": "brown",
+      "quick": true,
+      "lazy": false,
+      "jumps": "dog"
+    },
+
+    {
+      "name": "dog",
+      "color": null,
+      "quick": false,
+      "lazy": true,
+      "jumps": null
+    }
+
+  ]
+}

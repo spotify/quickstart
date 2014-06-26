@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+var pathogen = require('pathogen');
+var minimist = require('minimist');
+var requireRelative = require('require-relative');
+
+var argv = minimist(process.argv.slice(2));
+// clean up options.root, save root
+var root = argv.root = argv.root ? pathogen.resolve(argv.root + '/') : pathogen.cwd();
+
+var cli;
+
+try {
+  cli = requireRelative('quickstart/bin/cli', root);
+} catch(e) {
+  cli = require('./cli');
+}
+
+cli(argv);

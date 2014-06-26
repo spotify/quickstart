@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "main": "main.js",
+  "browser": {
+    "fs": "./lib/fs",
+    "./old": "./new",
+    "one/old": "./new",
+    "./false": false,
+    "four": false
+  }
+}
