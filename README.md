@@ -11,24 +11,47 @@ A CommonJS module resolver, loader and compiler for node.js and browsers.
 
 ## General Usage
 
-### 1. Install QuickStart globally (for the cli)
+### Install QuickStart globally (for the cli)
 
 ```
 npm install quickstart -g
 ```
 
-### 2. Install QuickStart and plugins in your project
+### Add index.html, package.json for your application
 
 ```
-mkdir app
-cd app
-npm install quickstart some-quickstart-transform
+cd my-awesome-app
 ```
 
-### 3. Build a development QuickStart file.
+index.html
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Awesomeness</title>
+    <script src="./quickstart.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+package.json
+```json
+{
+  "name": "my-awesome-app"
+}
+```
+
+### Install needed npm packages, QuickStart and plugins locally
 
 ```
-cd app
+npm install underscore --save
+npm install quickstart some-quickstart-transform --save-dev
+```
+
+### Build a development QuickStart file.
+
+```
 quickstart --transforms some-quickstart-transform --self > quickstart.js
 ```
 
@@ -37,23 +60,18 @@ If you want to install or remove QuickStart plugins, or change options, repeat t
 
 After that, simply link `quickstart.js` in the `<head>` of a document. It will compile and load your application at runtime in the browser.
 
-```html
-<script src="./quickstart.js"></script>
-```
-
-### 4. Deploy
+### Deploy
 
 ```
-cd app
-quickstart > app.js
+quickstart --transforms some-quickstart-transform > awesome.js
 ```
 
 This will create a compiled application for deployment.
 
-Now simply replace `quickstart.js` with `app.js`
+Now simply replace `quickstart.js` with `awesome.js`
 
 ```html
-<script src="./app.js"></script>
+<script src="./awesome.js"></script>
 ```
 
 ## Entry Point
