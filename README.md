@@ -113,7 +113,7 @@ Command line options look the same, except hyphenated.
 {
   runtime: 'quickstart/runtime/browser', // override the default runtime, defaults to quickstart/runtime/browser
   transforms: [], // which transforms to use, defaults to none
-  processors: {}, // which processors to use for each file extension, defaults to none, except embedded ones such as .js and .json.
+  parsers: {}, // which parsers to use for each file extension, defaults to none, except embedded ones such as .js and .json.
   compress: false, // optimize and mangle the ast and JavaScript output
   output: true, // generates the (compressed if {compress: true}) JavaScript output, defaults to true
   sourceMap: false, // generates the (compressed if {compress: true}) source map, defaults to false
@@ -133,7 +133,7 @@ quickstart --help
 ```
 --runtime runtimeModule # override the default runtime
 --transforms transformModule # which transforms to use
---processors ext=processorModule # which processors to use
+--parsers ext=parserModule # which parsers to use
 --compress # optimize and mangle the ast and JavaScript output
 --output # generates the (compressed if `--compress` is set) JavaScript output, defaults to true
 --source-map # generates the (compressed if `--compress` is set) source map, defaults to false
