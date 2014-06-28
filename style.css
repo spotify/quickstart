@@ -130,11 +130,13 @@ p {
 
 .code-line {
   margin: 1em 0;
+  overflow: auto;
 }
 
 .code-block {
   margin-top: 1em;
   margin-bottom: 1em;
+  overflow: auto;
 }
 
 .code {
