@@ -85,6 +85,10 @@ p {
   margin-top: 40px;
 }
 
+.pagewidth img {
+  max-width: 100%;
+}
+
 .codearea {
   background: #222;
   padding: 10px 0;
