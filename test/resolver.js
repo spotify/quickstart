@@ -115,4 +115,18 @@ describe('QuickStart Resolver', function() {
     return expect(resolve('_debugger')).to.eventually.equal('_debugger');
   });
 
+  it('should handle absolute paths (windows)', function() {
+    var paths = resolver._paths('C:\\Users\\username\\app\\node_modules\\package\\lib\\');
+    for (var i = 0, l = paths.length; i < l; i++) {
+      expect(paths[i].substr(0, 2)).to.equal('C:');
+    }
+  });
+
+  it('should handle absolute paths (unix)', function() {
+    var paths = resolver._paths('/Users/username/app/node_modules/package/lib/');
+    for (var i = 0, l = paths.length; i < l; i++) {
+      expect(paths[i].substr(0, 1)).to.equal('/');
+    }
+  });
+
 });
