@@ -1,6 +1,6 @@
 {
   "name": "quickstart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CommonJS module compiler for node.js and browsers",
   "main": "./main.js",
   "browser": {
