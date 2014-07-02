@@ -201,13 +201,14 @@ var Resolver = prime({
 
     var paths = [];
     var parts = (path).split('/').slice(1, -1);
+    var drive = new pathogen(path).drive;
 
     for (var i = parts.length, part; i; part = parts[i--]) {
       if (part === node_modules) continue;
-      var dir = '/' + parts.slice(0, i).join('/') + '/';
+      var dir = drive + '/' + parts.slice(0, i).join('/') + '/';
       paths.push(dir);
     }
-    paths.push('/');
+    paths.push(drive + '/');
     if (this.defaultPath) paths.push(this.defaultPath);
     return paths;
   },
