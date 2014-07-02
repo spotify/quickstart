@@ -67,6 +67,9 @@ module.exports = function(argv) {
   if (!options.parsers) options.parsers = {};
   if (!options.transforms) options.transforms = [];
 
+  // set warnings to true by default
+  if (options.warnings == null) options.warnings = true;
+
   // clean up options.output
   if (options.output == null) options.output = true;
 
@@ -109,8 +112,8 @@ module.exports = function(argv) {
   help.write(clc.green('--config     '),
     'specify a configuration json file to augment command line options. defaults to', clc.red('false'));
 
-  help.write(clc.green('--suppress-warnings'),
-    'suppress warning messages. defaults to', clc.red('false'));
+  help.write(clc.green('--warnings   '),
+    'display warning messages. defaults to', clc.blue('true'));
 
   help.write(clc.green('--help, -h   '),
     'display this help screen');
@@ -156,7 +159,7 @@ module.exports = function(argv) {
 
     if (type === 'group' || type === 'groupCollapsed') {
       if ((/warning/i).test(statement)) {
-        if (!options.suppressWarnings) konsole.group(clc.yellow(statement));
+        if (options.warnings) konsole.group(clc.yellow(statement));
       } else if ((/error/i).test(statement)) {
         konsole.group(clc.red(statement));
       } else {
@@ -196,7 +199,7 @@ module.exports = function(argv) {
         konsole.write(clc.red(id + ': ') + message);
       break;
       case 'warn':
-        if (!options.suppressWarnings) konsole.write(clc.yellow(id + ': ') + message);
+        if (options.warnings) konsole.write(clc.yellow(id + ': ') + message);
       break;
       case 'time':
         konsole.write(clc.blue(id + ': ') + message);
