@@ -16,7 +16,7 @@ var forIn = require('mout/object/forIn');
 var forEach = require('mout/array/forEach');
 var size = require('mout/object/size');
 
-var now = require('performance-now');
+var microseconds = require('microseconds');
 
 var Message = prime({
 
@@ -64,16 +64,16 @@ var Messages = prime({
   },
 
   time: function(id) {
-    this.timeStamps[id] = now();
+    this.timeStamps[id] = microseconds.now();
     return this;
   },
 
   timeEnd: function(id, name) {
     var timestamp = this.timeStamps[id];
     if (timestamp) {
-      var end = now() - timestamp;
-      var timeStamp = end + ' milliseconds';
-      this.messages.push(new Message('time', {id: name || id, message: timeStamp}));
+      var end = microseconds.since(timestamp);
+      var timeStampString = microseconds.parse(end).toString();
+      this.messages.push(new Message('time', {id: name || id, message: timeStampString}));
     }
     return this;
   },
