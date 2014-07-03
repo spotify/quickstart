@@ -119,6 +119,7 @@ Command line options look the same, except hyphenated.
   sourceMap: false, // generates the (compressed if {compress: true}) source map, defaults to false
   self: false // compiles the QuickStart compiler instead of the current app, defaults to false
   main: false // override the application's main, defaults to the QuickStart resolver
+  warnings: true // display warning messages, defaults to true
 }
 ```
 
@@ -139,6 +140,7 @@ quickstart --help
 --source-map # generates the (compressed if `--compress` is set) source map, defaults to false
 --self # compiles the QuickStart compiler instead of the current app, defaults to false
 --main ./path/to/entry-point # override the application's entry point, defaults to the QuickStart resolver
+--warnings # display warnings messages, defaults to true
 --ast ./path/to/source.ast # writes the ast to a file or *STDOUT*, defaults to false
 ```
 
