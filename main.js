@@ -48,9 +48,10 @@ function compileSelf(options, appRuntimePath, appRuntimeData, messages) {
     main: options.main ? pathogen(options.main) : './',
     runtimeData: appRuntimeData,
     runtimePath: pathogen.relative(root, appRuntimePath),
-    sourceMap: !!options.browserSourceMap,
-    defaultPath: pathogen.relative(root, options.defaultPath)
+    sourceMap: !!options.browserSourceMap
   };
+
+  if (options.defaultPath) config.defaultPath = pathogen.relative(root, options.defaultPath);
 
   var runtimePath = pathogen(__dirname + '/runtime/browser.js');
 
