@@ -209,7 +209,7 @@ var Resolver = prime({
       paths.push(dir);
     }
     paths.push(drive + '/');
-    if (this.defaultPath) paths.push(this.defaultPath);
+    if (this.defaultPath) paths.push(this.defaultPath + '/');
     return paths;
   },
 

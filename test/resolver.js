@@ -129,4 +129,12 @@ describe('QuickStart Resolver', function() {
     }
   });
 
+  it('should always have a trailing slash in paths', function() {
+    var resolver = new Resolver({defaultPath: 'folder'});
+    var paths = resolver._paths('folder');
+    for (var i = 0, l = paths.length; i < l; i++) {
+      expect(paths[i].substr(-1, 1)).to.equal('/');
+    }
+  });
+
 });
