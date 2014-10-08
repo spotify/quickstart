@@ -117,8 +117,8 @@ Command line options look the same, except hyphenated.
   compress: false, // optimize and mangle the ast and JavaScript output
   output: true, // generates the (compressed if {compress: true}) JavaScript output, defaults to true
   sourceMap: false, // generates the (compressed if {compress: true}) source map, defaults to false
-  self: false // compiles the QuickStart compiler instead of the current app, defaults to false
-  main: false // override the application's main, defaults to the QuickStart resolver
+  self: false, // compiles the QuickStart compiler instead of the current app, defaults to false
+  main: false, // override the application's main, defaults to the QuickStart resolver
   warnings: true // display warning messages, defaults to true
 }
 ```
