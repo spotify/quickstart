@@ -28,7 +28,6 @@ function requireDependencies(path, tree) {
   // Finds valid require and resolve nodes.
   var requireNodes = [];
   var resolveNodes = [];
-  var jsonNodes = [];
 
   traverse(tree, { enter: function(node, parent) {
     // callexpression, one argument
@@ -43,27 +42,7 @@ function requireDependencies(path, tree) {
 
     if (callee.type === Syntax.Identifier && callee.name === 'require') {
 
-      var isJSONProp = parent.type === Syntax.MemberExpression && /\.json$/.test(argument.value);
-      // require('./x.json').property;
-      var isNonComputedJSONProp = isJSONProp && parent.property.type === Syntax.Identifier && !parent.computed;
-      // require('./x.json')["property"];
-      var isLiteralJSONProp = isJSONProp && parent.property.type === Syntax.Literal;
-
-      if (isNonComputedJSONProp) jsonNodes.push({
-        node: node,
-        value: argument.value,
-        key: parent.property.name,
-        parent: parent
-      });
-
-      else if (isLiteralJSONProp) jsonNodes.push({
-        node: node,
-        value: argument.value,
-        key: parent.property.value,
-        parent: parent
-      });
-      // everything else
-      else requireNodes.push({
+      requireNodes.push({
         node: node,
         value: argument.value,
         parent: parent
@@ -127,32 +106,8 @@ function requireDependencies(path, tree) {
     });
   });
 
-  var jsonNodesPromise = sequence.every(jsonNodes, function(result) {
-    var jsonNodeKey = result.key;
-    var jsonNodeValue = result.value;
-    var jsonNodeParent = result.parent;
-
-    return self.resolve(pathogen(self.root + path), jsonNodeValue)
-    .then(transport.json)
-    .then(function(json) {
-      var stringValue = JSON.stringify(json[jsonNodeKey]);
-      var parsedExpression = express('(' + stringValue + ')');
-
-      var key;
-
-      for (key in jsonNodeParent) { // empty out the old node
-        if (key !== 'loc') delete jsonNodeParent[key];
-      }
-
-      for (key in parsedExpression) { // dump the new node in the old node
-        jsonNodeParent[key] = parsedExpression[key];
-      }
-
-    });
-  });
-
   // wait for those sequences to finish then return the tree
-  return sequence.every([requireNodesPromise, resolveNodesPromise, jsonNodesPromise]).then(function() {
+  return sequence.every([requireNodesPromise, resolveNodesPromise]).then(function() {
     return tree;
   });
 }
