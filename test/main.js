@@ -148,4 +148,16 @@ describe('quickstart', function() {
 
   });
 
+  it('should require JSON files', function() {
+
+    return expect(quickstart({
+      root: __dirname + '/root/',
+      runtime: '../../runtime/node',
+      main: './test-json'
+    }).then(function(result) {
+      eval(result.source);
+    })).to.be.fulfilled;
+
+  });
+
 });
