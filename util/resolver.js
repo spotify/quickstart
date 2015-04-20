@@ -96,7 +96,9 @@ var Resolver = prime({
           } else {
             control.save(null).continue();
           }
-        }, control.reject);
+        }, function() {
+          control.save(null).continue();
+        });
 
       }
 

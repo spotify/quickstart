@@ -4,6 +4,7 @@
   "browser": {
     "fs": "./lib/fs",
     "./old": "./new",
+    "./invalid-route": "./anything-really",
     "one/old": "./new",
     "./false": false,
     "four": false
