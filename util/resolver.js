@@ -114,7 +114,7 @@ var Resolver = prime({
         if (isPlainObject(json.browser)) {
 
           self._findRouteInBrowserField(json.browser, path, resolved).then(function(route) {
-            if (route === null) control.save(resolved).continue(); // no route found
+            if (route == null) control.save(resolved).continue(); // no route found
             else control.resolve(route);
           }, control.reject);
 

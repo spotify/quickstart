@@ -95,6 +95,10 @@ describe('QuickStart Resolver', function() {
     return expect(resolve('four')).to.eventually.equal(false);
   });
 
+  it('should ignore empty browser fields', function() {
+    return expect(resolve('six').then(relative)).to.eventually.equal('./node_modules/six/index.js');
+  });
+
   it('should resolve a package with specified main overridden by the browser field', function() {
     return expect(resolve('five').then(relative)).to.eventually.equal('./node_modules/five/browser.js');
   });
