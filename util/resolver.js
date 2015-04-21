@@ -177,8 +177,9 @@ var Resolver = prime({
     return transport.json(full + 'package.json').catch(function() {
       return {};
     }).then(function(json) {
-      var main = isString(json.browser) ? json.browser : (json.main || 'index');
-      return self._file(pathogen.resolve(full, main));
+      var main = isString(json.browser) ? json.browser : json.main;
+      if (main == null) return self._file(pathogen.resolve(full, 'index'));
+      return self._load(pathogen.resolve(full, main));
     });
   },
 
