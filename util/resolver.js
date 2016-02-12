@@ -219,18 +219,18 @@ var Resolver = prime({
   resolvePackage: function(path, packageName) {
     var self = this;
     var node_modules = self.nodeModules;
-    var nodePath = process.env['NODE_PATH'];
+    var nodePath = (typeof process !== 'undefined') && process.env && process.env.NODE_PATH;
 
     path = pathogen.resolve(pathogen.dirname(path));
 
     var paths = self._paths(path);
 
     paths = paths.map(function(path) {
-      return path + '/' + node_modules;
+      return path + node_modules;
     });
 
     if (nodePath) {
-      paths = nodePath.split(path.delimiter).filter(function(path) {
+      paths = nodePath.split(':').filter(function(path) {
         return !!path;
       }).concat(paths);
     }
