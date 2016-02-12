@@ -1,6 +1,7 @@
 /* global -Promise*/
 'use strict';
 
+var pathModule = require('path');
 var pathogen = require('pathogen');
 var prime = require('prime');
 
@@ -230,7 +231,7 @@ var Resolver = prime({
     });
 
     if (nodePath) {
-      paths = nodePath.split(':').filter(function(path) {
+      paths = nodePath.split(pathModule.delimiter).filter(function(path) {
         return !!path;
       }).concat(paths);
     }
