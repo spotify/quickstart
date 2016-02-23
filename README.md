@@ -1,6 +1,6 @@
 # [Deprecated]
 
-QuickStart is no longer maintained. It will still exist in npm, but no more updates will happen.
+QuickStart is no longer maintained. It will still exist in npm, but no more updates will happen. We no longer use QuickStart at Spotify, and instead recommend other bundlers such as [Browserify](http://browserify.org/) or [Webpack](https://webpack.github.io/).
 
 # [QuickStart](http://spotify.github.io/quickstart)
 
