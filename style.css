@@ -122,6 +122,13 @@ p {
   height: 20px;
 }
 
+.notice {
+  color: #fec;
+}
+
+.notice h3 {
+  color: #fec;
+}
 
 
 /**
