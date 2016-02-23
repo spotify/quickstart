@@ -1,3 +1,7 @@
+# [Deprecated]
+
+QuickStart is no longer maintained. It will still exist in npm, but no more updates will happen.
+
 # [QuickStart](http://spotify.github.io/quickstart)
 
 A CommonJS module resolver, loader and compiler for node.js and browsers.
